@@ -13,6 +13,6 @@ class Solution:
 
         # for pos_1 in range(len(nums)):
         #     pos_2 = dict_1.get(target - nums[pos_1], None)
-        #     if pos_2 is not None and pos_1 != pos_2:
+        #     if pos_2 is not None:
         #         return [pos_1, pos_2]
         #     dict_1[nums[pos_1]] = pos_1

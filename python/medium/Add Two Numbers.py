@@ -17,6 +17,9 @@ class Solution:
 
         while l1 is not None or l2 is not None or one_point == 1:
 
+            result.next = ListNode(0)
+            result = result.next
+
             if l1 is None and l2 is None:
                 new = one_point
             elif l1 is None:
@@ -35,10 +38,6 @@ class Solution:
                 result.val = new % 10
             else:
                 one_point = 0
-                result.val = new % 10
+                result.val = new
 
-            if l1 is not None or l2 is not None or one_point == 1:
-                result.next = ListNode(0)
-                result = result.next
-
-        return final
+        return final.next
