@@ -1,0 +1,25 @@
+/* Write your T-SQL query statement below */
+SELECT person_name.name FROM salesperson person_name 
+INNER JOIN
+(
+SELECT sales_id FROM salesperson 
+EXCEPT
+SELECT sales_id FROM orders 
+INNER JOIN (
+    SELECT company.com_id FROM company WHERE company.name = 'RED' 
+    ) company
+ON orders.com_id = company.com_id
+) person_id
+ON person_name.sales_id = person_id.sales_id;
+
+OR
+
+SELECT [name] FROM salesperson  
+WHERE sales_id NOT IN
+(
+SELECT sales_id FROM orders 
+INNER JOIN (
+    SELECT company.com_id FROM company WHERE company.name = 'RED' 
+    ) company
+ON orders.com_id = company.com_id
+);
