@@ -1,0 +1,12 @@
+/* Write your T-SQL query statement below */
+IF (SELECT count(DISTINCT salary) FROM employee) > 1
+    
+    WITH CTE AS (
+    SELECT salary, dense_rank() OVER (ORDER BY salary DESC) AS rank_col FROM employee
+    )
+
+    SELECT DISTINCT(salary) AS SecondHighestSalary FROM CTE WHERE rank_col = 2;
+    
+ELSE
+
+    SELECT NULL AS SecondHighestSalary;
