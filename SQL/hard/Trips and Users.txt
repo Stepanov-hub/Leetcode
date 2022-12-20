@@ -1,0 +1,9 @@
+/* Write your T-SQL query statement below */
+SELECT trips.request_at AS Day, 
+round(sum(CASE WHEN [status]<>'completed' THEN 1.0 ELSE 0 END)/count(*), 2) AS 'Cancellation Rate'
+FROM trips 
+JOIN users AS users_1 ON trips.client_id = users_1.users_id
+JOIN users AS users_2 ON trips.driver_id = users_2.users_id
+WHERE users_1.banned = 'No' AND users_2.banned = 'No' AND
+trips.request_at BETWEEN '2013-10-01' AND '2013-10-03'
+GROUP BY trips.request_at;

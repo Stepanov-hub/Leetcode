@@ -1,0 +1,18 @@
+# Write your MySQL query statement below
+SELECT id, visit_date, people
+FROM
+(
+ SELECT 
+     ID,
+     Visit_Date,
+     People,
+     count(*) over(ORDER BY id range BETWEEN current row AND 2 following) Following_cnt,
+     count(*) over(ORDER BY id range BETWEEN 2 preceding AND current row) Preceding_cnt,
+     count(*) over(ORDER BY id range BETWEEN 1 preceding AND 1 following) Current_cnt
+ FROM 
+     (
+         SELECT ID, Visit_Date, People 
+         FROM Stadium  
+         WHERE People >= 100
+     ) temp
+) final WHERE Following_cnt = 3 OR Preceding_cnt = 3 OR Current_cnt = 3;

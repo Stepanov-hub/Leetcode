@@ -1,0 +1,10 @@
+/* Write your T-SQL query statement below */
+WITH CTE AS (
+    SELECT dep.name AS Department, emp.name AS Employee, emp.salary AS Salary, 
+    dense_rank() OVER (PARTITION BY dep.id ORDER BY emp.salary desc) AS rank_col
+    FROM employee AS emp
+    INNER JOIN department AS dep ON emp.departmentid = dep.id
+) 
+
+SELECT Department, Employee, Salary FROM CTE 
+WHERE rank_col < 4;
