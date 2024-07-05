@@ -1,0 +1,4 @@
+SELECT distinct log_1.num AS ConsecutiveNums FROM logs log_1
+JOIN logs log_2 ON log_1.id = log_2.id-1
+JOIN logs log_3 ON log_1.id = log_3.id+1
+WHERE log_1.num = log_2.num and log_1.num = log_3.num

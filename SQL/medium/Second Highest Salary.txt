@@ -10,3 +10,12 @@ IF (SELECT count(DISTINCT salary) FROM employee) > 1
 ELSE
 
     SELECT NULL AS SecondHighestSalary;
+
+
+select max(salary) as SecondHighestSalary
+from Employee 
+where salary != 
+(
+select max(salary)
+from employee
+);

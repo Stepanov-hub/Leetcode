@@ -1,0 +1,6 @@
+SELECT a.Employee, a.Salary, b.name as Department from
+(
+SELECT name as Employee, salary as Salary, departmentid from employee e WHERE salary = 
+(select max(salary) from employee e_1 where e.departmentid=e_1.departmentid group by departmentid) 
+) a
+JOIN department b on a.departmentid = b.id

@@ -1,0 +1,8 @@
+with cte as (
+  select managerId as id from Employee 
+  group by managerId
+  having count(*)>=5
+)
+
+select name from Employee a
+join cte b on a.id = b.id
