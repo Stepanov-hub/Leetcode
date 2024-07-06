@@ -5,7 +5,7 @@ def pre_order(node_p, node_q, fl):
             pre_order(node_p.right, node_q.right, fl)
         else:
             fl[False] = 0
-    elif node_p is None and node_q is None: 
+    elif node_p is None and node_q is None:
         pass
     else:
         fl[False] = 0
@@ -23,4 +23,3 @@ class Solution:
         fl = {}
         pre_order(p, q, fl)
         return fl.get(False, True)
-        

@@ -11,13 +11,14 @@ class Solution:
             x = abs(x)
 
         while x != 0:
-            #if return_value > int_max/10 or return_value
-            return_value = return_value*10 + x%10
-            x = int(x/10)
+            # if return_value > int_max/10 or return_value
+            return_value = return_value * 10 + x % 10
+            x = int(x / 10)
 
-        return_value = return_value*sign
+        return_value = return_value * sign
 
         return return_value
+
 
 a = Solution()
 input = -123

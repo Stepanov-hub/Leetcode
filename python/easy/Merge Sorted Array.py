@@ -5,7 +5,7 @@ class Solution:
         """
         it_1 = m - 1
         it_2 = n - 1
-        it_3 = m + n -1
+        it_3 = m + n - 1
 
         while it_1 >= 0 and it_2 >= 0:
             if nums1[it_1] <= nums2[it_2]:

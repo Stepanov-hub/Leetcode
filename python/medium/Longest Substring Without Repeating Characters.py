@@ -23,7 +23,7 @@ class Solution:
                 dict_s[s[i]] = i
                 start = pos + 1
 
-        if return_value<intermediate_value:
+        if return_value < intermediate_value:
             return intermediate_value
         else:
             return return_value
